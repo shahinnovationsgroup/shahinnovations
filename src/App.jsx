@@ -1,22 +1,90 @@
 import { motion } from 'framer-motion'
+import { useState } from 'react'
 
 function App() {
+  const [menuOpen, setMenuOpen] = useState(false)
   return (
     <div className="min-h-screen bg-slate-950 text-white">
 
       {/* Header */}
-      <header className="border-b border-white/10">
+      <header className="sticky top-0 z-50 relative border-b border-white/10 bg-slate-950/95 backdrop-blur">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5">
           <h1 className="text-2xl font-bold tracking-tight">
             Shah<span className="text-cyan-400">Innovations</span>
           </h1>
 
-          <nav className="hidden gap-8 text-sm text-slate-300 md:flex">
-            <a href="#home" className="hover:text-white">Home</a>
-            <a href="#services" className="hover:text-white">Services</a>
-            <a href="#about" className="hover:text-white">About</a>
-            <a href="#contact" className="hover:text-white">Contact</a>
-          </nav>
+          <div className="flex items-center gap-4">
+
+  {/* Desktop Menu */}
+  <nav className="hidden gap-8 text-sm text-slate-300 md:flex">
+    <a href="#home" className="transition hover:text-cyan-400">
+      Home
+    </a>
+
+    <a href="#services" className="transition hover:text-cyan-400">
+      Services
+    </a>
+
+    <a href="#about" className="transition hover:text-cyan-400">
+      About
+    </a>
+
+    <a href="#contact" className="transition hover:text-cyan-400">
+      Contact
+    </a>
+  </nav>
+
+  {/* Mobile Menu Button */}
+  <button
+    onClick={() => setMenuOpen(!menuOpen)}
+    className="text-2xl text-slate-300 md:hidden"
+    aria-label="Toggle menu"
+  >
+    {menuOpen ? '✕' : '☰'}
+    {menuOpen && (
+  <motion.div
+    initial={{ opacity: 0, y: -10 }}
+    animate={{ opacity: 1, y: 0 }}
+    className="absolute left-0 top-full w-full border-t border-white/10 bg-slate-950 px-6 py-5 md:hidden"
+  >
+    <div className="flex flex-col gap-5 text-sm text-slate-300">
+      <a
+        href="#home"
+        onClick={() => setMenuOpen(false)}
+        className="transition hover:text-cyan-400"
+      >
+        Home
+      </a>
+
+      <a
+        href="#services"
+        onClick={() => setMenuOpen(false)}
+        className="transition hover:text-cyan-400"
+      >
+        Services
+      </a>
+
+      <a
+        href="#about"
+        onClick={() => setMenuOpen(false)}
+        className="transition hover:text-cyan-400"
+      >
+        About
+      </a>
+
+      <a
+        href="#contact"
+        onClick={() => setMenuOpen(false)}
+        className="transition hover:text-cyan-400"
+      >
+        Contact
+      </a>
+    </div>
+  </motion.div>
+)}
+  </button>
+
+</div>
         </div>
       </header>
 
