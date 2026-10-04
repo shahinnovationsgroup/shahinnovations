@@ -90,7 +90,22 @@ function App() {
 
       {/* Hero */}
       <main id="home">
-        <section className="mx-auto max-w-7xl px-6 py-24 text-center md:py-32">
+        <section className="relative mx-auto max-w-7xl overflow-hidden px-6 py-24 text-center md:py-32">
+
+<motion.div
+  animate={{
+    scale: [1, 1.15, 1],
+    opacity: [0.5, 0.8, 0.5],
+  }}
+  transition={{
+    duration: 5,
+    repeat: Infinity,
+    ease: "easeInOut",
+  }}
+  className="pointer-events-none absolute inset-0 -z-0"
+>
+  <div className="absolute left-1/2 top-1/2 h-72 w-72 -translate-x-1/2 -translate-y-1/2 rounded-full bg-cyan-400/10 blur-3xl" />
+</motion.div>
 
           <p className="mb-4 text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
             Technology • Innovation • Digital Solutions
