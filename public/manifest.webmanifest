@@ -1,4 +1,5 @@
 {
+  "id": "/",
   "name": "ShahInnovations",
   "short_name": "ShahInnovations",
   "description": "ShahInnovations — Technology, Innovation and Digital Solutions.",
@@ -15,16 +16,22 @@
   ],
   "icons": [
     {
-      "src": "/shahinnovations-favicon.png",
+      "src": "/pwa-192.png",
       "sizes": "192x192",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
     },
     {
-      "src": "/shahinnovations-favicon.png",
+      "src": "/pwa-512.png",
       "sizes": "512x512",
       "type": "image/png",
-      "purpose": "any maskable"
+      "purpose": "any"
+    },
+    {
+      "src": "/pwa-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
     }
   ]
 }
