@@ -37,7 +37,7 @@
   "screenshots": [
     {
       "src": "/pwa-mobile.png",
-      "sizes": "242x556",
+      "sizes": "320x735",
       "type": "image/png",
       "form_factor": "narrow"
     },
