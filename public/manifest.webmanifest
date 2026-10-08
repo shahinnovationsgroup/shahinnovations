@@ -1,0 +1,30 @@
+{
+  "name": "ShahInnovations",
+  "short_name": "ShahInnovations",
+  "description": "ShahInnovations — Technology, Innovation and Digital Solutions.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#020617",
+  "theme_color": "#020617",
+  "orientation": "portrait-primary",
+  "categories": [
+    "business",
+    "technology",
+    "productivity"
+  ],
+  "icons": [
+    {
+      "src": "/shahinnovations-favicon.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/shahinnovations-favicon.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
