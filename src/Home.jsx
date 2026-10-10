@@ -92,7 +92,7 @@ function Home() {
             </div>
 
             {/* Trust Points */}
-            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-slate-500">
+            <div className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-sm text-slate-400">
               <span>✓ Modern Technology</span>
               <span>✓ Responsive Design</span>
               <span>✓ Business Focused</span>
@@ -144,7 +144,7 @@ function Home() {
                     Shah<span className="text-cyan-400">Innovations</span>
                   </h2>
 
-                  <p className="mt-3 text-sm text-slate-500">
+                  <p className="mt-3 text-sm text-slate-400">
                     Innovation starts with an idea.
                   </p>
 
@@ -169,7 +169,7 @@ function Home() {
                 }}
                 className="absolute -bottom-5 -left-5 rounded-2xl border border-white/10 bg-slate-900/90 px-5 py-4 shadow-xl backdrop-blur"
               >
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-slate-400">
                   Focus
                 </p>
                 <p className="mt-1 font-semibold text-cyan-400">
@@ -187,7 +187,7 @@ function Home() {
                 }}
                 className="absolute -right-5 -top-5 rounded-2xl border border-white/10 bg-slate-900/90 px-5 py-4 shadow-xl backdrop-blur"
               >
-                <p className="text-xs text-slate-500">
+                <p className="text-xs text-slate-400">
                   Approach
                 </p>
                 <p className="mt-1 font-semibold text-white">
@@ -334,7 +334,7 @@ function Home() {
               <div className="text-3xl font-bold text-cyan-400">
                 100%
               </div>
-              <p className="mt-2 text-sm text-slate-500">
+              <p className="mt-2 text-sm text-slate-400">
                 Digital Focus
               </p>
             </div>
@@ -343,7 +343,7 @@ function Home() {
               <div className="text-3xl font-bold text-cyan-400">
                 24/7
               </div>
-              <p className="mt-2 text-sm text-slate-500">
+              <p className="mt-2 text-sm text-slate-400">
                 Digital Presence
               </p>
             </div>
@@ -352,7 +352,7 @@ function Home() {
               <div className="text-3xl font-bold text-cyan-400">
                 Modern
               </div>
-              <p className="mt-2 text-sm text-slate-500">
+              <p className="mt-2 text-sm text-slate-400">
                 Technology Stack
               </p>
             </div>
@@ -361,7 +361,7 @@ function Home() {
               <div className="text-3xl font-bold text-cyan-400">
                 Smart
               </div>
-              <p className="mt-2 text-sm text-slate-500">
+              <p className="mt-2 text-sm text-slate-400">
                 Solutions
               </p>
             </div>

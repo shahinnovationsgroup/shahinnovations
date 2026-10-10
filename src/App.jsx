@@ -11,7 +11,7 @@ import AdminLogin from './AdminLogin'
 
 import { supabase } from './supabase.js'
 
-import logo from './assets/shahinnovations-logo.png'
+import logo from './assets/shahinnovations-logo.webp'
 
 function App() {
   const { pathname: path } = useLocation()
@@ -90,7 +90,7 @@ function App() {
 
       <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
 
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4">
+        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
 
           {/* Logo */}
 
@@ -105,7 +105,7 @@ function App() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6 }}
-              className="h-12 w-auto object-contain"
+              className="h-16 w-auto object-contain"
             />
           </Link>
 
