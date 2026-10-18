@@ -924,305 +924,195 @@ html {
 }
 
 
+/* ShahInnovations logo scroll-rectangle fix — transparent logo layer */
+header.sticky,
+header.sticky .brand,
+header.sticky a,
+header.sticky a:link,
+header.sticky a:visited,
+header.sticky a img {
+  background-color: transparent !important;
+  background-image: none !important;
+  box-shadow: none !important;
+}
 
+header.sticky a,
+header.sticky a:hover,
+header.sticky a:focus-visible {
+  border: 0 !important;
+  outline-offset: 4px;
+  text-decoration: none !important;
+}
 
-/* MOBILE HERO — keep text first and visual below */
-@media (max-width: 600px) {
+header.sticky a::before,
+header.sticky a::after,
+header.sticky a img::before,
+header.sticky a img::after {
+  content: none !important;
+  display: none !important;
+}
+
+header.sticky a img {
+  display: block;
+  width: auto;
+  height: auto;
+  max-height: 48px;
+  object-fit: contain;
+  border: 0 !important;
+  border-radius: 0 !important;
+  filter: none !important;
+  mix-blend-mode: normal !important;
+  transform: none;
+}
+
+/* Keep the fixed progress indicator from painting across the logo area. */
+.si-motion-experience > .progress {
+  pointer-events: none !important;
+}
+
+/* MOBILE HERO FIX — keep navbar logo and hero text separate */
+
+@media (max-width: 800px) {
   #scene1 .copy {
-    position: relative !important;
-    z-index: 3;
+    position: relative;
+    z-index: 5;
+    padding-top: 24px !important;
+    margin-top: 0 !important;
   }
 
-  #scene1 .assembly {
-    position: absolute !important;
-    top: auto !important;
-    right: 5% !important;
-    bottom: 24px !important;
-    left: 5% !important;
-    width: 90% !important;
-    height: clamp(230px, 30svh, 280px) !important;
-    min-height: 0 !important;
-    margin: 0 !important;
-    translate: none !important;
-    transform: none !important;
+  #scene1 .eyebrow {
+    display: block;
+    position: relative;
+    margin-top: 8px !important;
+    margin-bottom: 12px !important;
+    line-height: 1.6;
+    max-width: 100%;
+    overflow-wrap: break-word;
+  }
+
+  #scene1 .copy h1 {
+    position: relative;
+    margin-top: 0 !important;
+    margin-bottom: 14px !important;
+    line-height: 1.08;
+  }
+
+  #scene1 .copy .lead {
+    margin-top: 0 !important;
+    margin-bottom: 18px !important;
+    line-height: 1.7;
+  }
+
+  #scene1 .copy .buttons {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 0 !important;
   }
 }
 
-
-/* =====================================================
-   SHAHINNOVATIONS — FINAL MOBILE HERO LAYOUT FIX
-   Text first, 3D assembly below, no overlap or clipping
-   Desktop layout remains unchanged
-===================================================== */
-
-@media (max-width: 600px) {
-  #scene1 {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    justify-content: flex-start !important;
-
-    height: auto !important;
-    min-height: 100svh !important;
-    padding: 28px 5% 28px !important;
-    box-sizing: border-box !important;
-    overflow: hidden;
-  }
-
+@media (max-width: 480px) {
   #scene1 .copy {
-    position: relative !important;
-    inset: auto !important;
-    z-index: 3 !important;
-
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: 0 0 auto !important;
-
-    margin: 0 !important;
-    padding: 0 !important;
+    padding-top: 30px !important;
   }
 
-  #scene1 .assembly {
-    position: relative !important;
-    inset: auto !important;
-
-    display: block !important;
-    flex: 0 0 auto !important;
-
-    width: 100% !important;
-    height: clamp(230px, 32svh, 280px) !important;
-    min-height: 0 !important;
-    max-height: 280px !important;
-
-    margin: 28px 0 0 !important;
-    translate: none !important;
-    transform: none !important;
-
-    overflow: hidden !important;
-    border-radius: 18px !important;
-    clip-path: inset(0 0 0 0 round 18px) !important;
-    animation: none !important;
-    will-change: auto !important;
+  #scene1 .eyebrow {
+    font-size: 8px;
+    letter-spacing: 0.06em;
+    margin-bottom: 12px !important;
   }
 
-  #scene1 .assembly::before {
-    animation: none !important;
-    opacity: 0 !important;
+  #scene1 .copy h1 {
+    font-size: clamp(36px, 10vw, 46px) !important;
+    line-height: 1.08;
   }
 
-  #scene1 .assembly::after {
-    animation: none !important;
+  #scene1 .copy .lead {
+    font-size: 12px;
+    line-height: 1.7;
   }
 
-  #scene1 .scene-caption {
-    position: relative !important;
-    inset: auto !important;
-    margin-top: 14px !important;
+  #scene1 .copy .buttons {
+    gap: 8px;
   }
 }
 
-@media (max-width: 360px) {
-  #scene1 {
-    padding-left: 4% !important;
-    padding-right: 4% !important;
-  }
+/* SHAHINNOVATIONS NAVBAR LOGO — SIZE FIX */
 
-  #scene1 .assembly {
-    height: 230px !important;
-    margin-top: 22px !important;
+header.sticky {
+  display: block !important;
+  min-height: 0 !important;
+}
+
+/* Enlarge logo without centering the navbar */
+header.sticky a img {
+  width: 320px !important;
+  height: 76px !important;
+  max-width: none !important;
+  max-height: 76px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  display: block !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+@media (max-width: 900px) {
+  header.sticky a img {
+    width: 260px !important;
+    height: 64px !important;
+    max-height: 64px !important;
   }
 }
 
-@media (prefers-reduced-motion: reduce) {
-  #scene1 .copy,
-  #scene1 .assembly,
-  #scene1 .assembly::before,
-  #scene1 .assembly::after {
-    animation: none !important;
-    filter: none !important;
+@media (max-width: 560px) {
+  header.sticky a img {
+    width: 220px !important;
+    height: 54px !important;
+    max-height: 54px !important;
   }
 }
 
+/* SAME LOGO SIZE — WEBSITE + ADMIN HEADER */
 
-/* FINAL FIX — Scene 03 mobile visual order */
-@media (max-width: 600px) {
-  .si-motion-experience .s3 {
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: stretch !important;
-    justify-content: flex-start !important;
-    height: auto !important;
-    min-height: 100svh !important;
-    padding: 100px 20px 36px !important;
-    box-sizing: border-box !important;
-    overflow: hidden;
-  }
+/* Website navbar logo */
+header.sticky a img,
 
-  .si-motion-experience .s3 .copy {
-    position: relative !important;
-    inset: auto !important;
-    order: 1 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    flex: 0 0 auto !important;
-  }
+/* Admin dashboard header logo */
+.admin-header a img,
+.admin-navbar a img,
+.admin-topbar a img {
+  width: 320px !important;
+  height: 76px !important;
+  max-width: none !important;
+  max-height: 76px !important;
+  object-fit: contain !important;
+  object-position: left center !important;
+  display: block !important;
+}
 
-  .si-motion-experience .s3 .ai-processing {
-    position: relative !important;
-    inset: auto !important;
-    order: 2 !important;
-    transform: none !important;
-    width: 100% !important;
-    height: 300px !important;
-    min-height: 0 !important;
-    max-height: 300px !important;
-    margin: 26px 0 0 !important;
-    flex: 0 0 auto !important;
+/* Tablet */
+@media (max-width: 900px) {
+  header.sticky a img,
+  .admin-header a img,
+  .admin-navbar a img,
+  .admin-topbar a img {
+    width: 260px !important;
+    height: 64px !important;
+    max-height: 64px !important;
   }
 }
 
-/* =====================================================
-   SHAHINNOVATIONS — MOBILE SCENE 01 + SCENE 04 FIX
-   Mobile only: text first, visual below, controlled gaps
-   Desktop layout remains unchanged
-===================================================== */
-
-@media (max-width: 600px) {
-
-  /* SCENE 01 — Building the Digital Future */
-  #scene1 {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-    align-items: stretch !important;
-
-    position: relative !important;
-    height: auto !important;
-    min-height: 100svh !important;
-    box-sizing: border-box !important;
-    padding: 24px 20px 36px !important;
-    overflow: hidden;
-  }
-
-  #scene1 > .copy {
-    position: relative !important;
-    inset: auto !important;
-    order: 1 !important;
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: 0 0 auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    z-index: 3 !important;
-  }
-
-  #scene1 > .assembly {
-    position: relative !important;
-    inset: auto !important;
-    order: 2 !important;
-
-    display: block !important;
-    width: 100% !important;
-    height: clamp(240px, 32svh, 285px) !important;
-    min-height: 0 !important;
-    max-height: 285px !important;
-    flex: 0 0 auto !important;
-
-    margin: 26px 0 0 !important;
-    translate: none !important;
-    transform: none !important;
-    box-sizing: border-box !important;
-    overflow: hidden !important;
-    border-radius: 18px !important;
-  }
-
-  #scene1 > .scene-caption {
-    position: relative !important;
-    inset: auto !important;
-    order: 3 !important;
-    margin-top: 14px !important;
-  }
-
-  /* SCENE 04 — Brand Signal Scanning */
-  #scene4 {
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: flex-start !important;
-    align-items: stretch !important;
-
-    position: relative !important;
-    height: auto !important;
-    min-height: 100svh !important;
-    box-sizing: border-box !important;
-    padding: 24px 20px 36px !important;
-    overflow: hidden;
-  }
-
-  #scene4 > .copy,
-  #scene4 > .split-copy {
-    position: relative !important;
-    inset: auto !important;
-    order: 1 !important;
-
-    width: 100% !important;
-    max-width: 100% !important;
-    flex: 0 0 auto !important;
-    margin: 0 !important;
-    padding: 0 !important;
-    z-index: 3 !important;
-  }
-
-  #scene4 > .split-visual {
-    position: relative !important;
-    inset: auto !important;
-    order: 2 !important;
-
-    display: block !important;
-    width: 100% !important;
-    height: clamp(240px, 32svh, 285px) !important;
-    min-height: 0 !important;
-    max-height: 285px !important;
-    flex: 0 0 auto !important;
-
-    margin: 26px 0 0 !important;
-    translate: none !important;
-    transform: none !important;
-    box-sizing: border-box !important;
-    clip-path: none !important;
-    border-radius: 18px !important;
-    overflow: hidden !important;
-  }
-
-  #scene4 > .scene-caption {
-    position: relative !important;
-    inset: auto !important;
-    order: 3 !important;
-    margin-top: 14px !important;
-  }
-}
-
-/* Small phones */
-@media (max-width: 360px) {
-  #scene1,
-  #scene4 {
-    padding-left: 16px !important;
-    padding-right: 16px !important;
-  }
-
-  #scene1 > .assembly,
-  #scene4 > .split-visual {
-    height: 235px !important;
-    margin-top: 22px !important;
-  }
-}
-
-/* Respect reduced-motion preference */
-@media (max-width: 600px) and (prefers-reduced-motion: reduce) {
-  #scene1 > .assembly,
-  #scene4 > .split-visual {
-    animation: none !important;
-    clip-path: none !important;
+/* Mobile */
+@media (max-width: 560px) {
+  header.sticky a img,
+  .admin-header a img,
+  .admin-navbar a img,
+  .admin-topbar a img {
+    width: 220px !important;
+    height: 54px !important;
+    max-height: 54px !important;
   }
 }

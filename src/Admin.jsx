@@ -346,14 +346,14 @@ return (
       {/* ================= HEADER ================= */}
 
       <header className="border-b border-white/10 bg-slate-950/90 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-4">
+        <div className="mx-auto flex min-h-[88px] max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-3">
 
           <Link to="/">
 
 <img
   src={logo}
   alt="ShahInnovations"
-  className="block h-12 w-auto max-w-[250px] object-contain sm:h-14 sm:max-w-[280px]"
+  className="block h-20 w-auto max-w-[420px] object-contain sm:h-18 sm:max-w-[440px]"
 />
 
           </Link>
