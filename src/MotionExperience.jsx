@@ -1,5 +1,3 @@
-
-
 import { useEffect, useRef } from 'react'
 
 import './motion-scenes.css'
@@ -196,55 +194,15 @@ const motionMarkup = `
 
       <div class="brand-search-label"><span class="search-live-dot"></span> BRAND SIGNAL SCAN <b>LIVE</b></div>
 
+      <div class="brand-target target-one active"><span class="target-corner"></span><strong>Shah<span>Innovations</span></strong><small>TECHNOLOGY · INNOVATION</small></div>
 
+      <div class="brand-target target-two"><span class="target-corner"></span><strong>Shah<span>Innovations</span></strong><small>TECHNOLOGY · INNOVATION</small></div>
 
-      <div class="brand-target target-one active">
+      <div class="brand-target target-three"><span class="target-corner"></span><strong>Shah<span>Innovations</span></strong><small>TECHNOLOGY · INNOVATION</small></div>
 
-        <span class="target-corner"></span>
+      <div class="brand-target target-four"><span class="target-corner"></span><strong>Shah<span>Innovations</span></strong><small>TECHNOLOGY · INNOVATION</small></div>
 
-        <strong>Shah<span>Innovations</span></strong>
-
-        <small>TECHNOLOGY · INNOVATION</small>
-
-      </div>
-
-      <div class="brand-target target-two">
-
-        <span class="target-corner"></span>
-
-        <strong>Shah<span>Innovations</span></strong>
-
-        <small>TECHNOLOGY · INNOVATION</small>
-
-      </div>
-
-      <div class="brand-target target-three">
-
-        <span class="target-corner"></span>
-
-        <strong>Shah<span>Innovations</span></strong>
-
-        <small>TECHNOLOGY · INNOVATION</small>
-
-      </div>
-
-      <div class="brand-target target-four">
-
-        <span class="target-corner"></span>
-
-        <strong>Shah<span>Innovations</span></strong>
-
-        <small>TECHNOLOGY · INNOVATION</small>
-
-      </div>
-
-
-
-      <div class="brand-search-status">
-
-        <i></i><span>SCANNING DIGITAL SPACE</span><b id="brandScanStep">01 / 04</b>
-
-      </div>
+      <div class="brand-search-status"><i></i><span>SCANNING DIGITAL SPACE</span><b id="brandScanStep">01 / 04</b></div>
 
     </div>
 
@@ -310,8 +268,6 @@ const motionMarkup = `
 
       </article>
 
-
-
       <article class="glass-card automation-card" style="--rot:6deg;--delay:-1.4s">
 
         <div class="motion-visual automation-gen" aria-hidden="true">
@@ -327,8 +283,6 @@ const motionMarkup = `
         <div class="glyph">✳</div><h3>App Development</h3><p>Triggers, decisions and actions assemble into an automated flow.</p>
 
       </article>
-
-
 
       <article class="glass-card workflow-card" style="--rot:5deg;--delay:-2s">
 
@@ -355,8 +309,6 @@ const motionMarkup = `
         <div class="glyph">↔</div><h3>Digital Solutions</h3><p>Requests branch through steps, approvals and assigned actions.</p>
 
       </article>
-
-
 
       <article class="glass-card integration-card" style="--rot:-4deg;--delay:-.8s">
 
@@ -406,23 +358,37 @@ const motionMarkup = `
 
         <defs><linearGradient id="flowGrad"><stop stop-color="#42e8ff"/><stop offset="1" stop-color="#a178ff"/></linearGradient></defs>
 
-        <path d="M300 250 Q190 115 90 90"/><path d="M300 250 Q430 110 510 95"/><path d="M300 250 Q170 330 85 390"/><path d="M300 250 Q430 340 510 390"/><path d="M300 250 Q300 125 300 55"/><path d="M300 250 Q300 375 300 450"/>
+        <path class="connection connection-website" d="M300 250 Q190 115 90 90"/><path class="connection connection-reply" d="M300 250 Q430 110 510 95"/><path class="connection connection-marketing" d="M300 250 Q170 330 85 390"/><path class="connection connection-app" d="M300 250 Q430 340 510 390"/><path class="connection connection-voice" d="M300 250 Q300 125 300 55"/><path class="connection connection-agentic" d="M300 250 Q300 375 300 450"/>
 
       </svg>
 
-      <div class="flow-core">AI</div>
+      <div class="flow-core" aria-label="ShahInnovations Upcoming Projects">
+        <span class="typing-brand">ShahInnovations Upcoming Projects</span><span class="typing-caret" aria-hidden="true">▍</span>
+      </div>
 
-      <div class="flow-node" style="--x:15%;--y:18%"><b>WEBSITE</b><small>Visitor enquiry</small></div>
+      <div class="flow-node service-website" style="--x:15%;--y:18%;--delay:-.3s">
+        <span class="service-icon website-icon" aria-hidden="true">⌘</span><b>Website Building</b><small class="service-live">BUILDING</small>
+      </div>
 
-      <div class="flow-node" style="--x:85%;--y:18%;--delay:-1s"><b>SMART LOGIC</b><small>Route the request</small></div>
+      <div class="flow-node service-reply" style="--x:85%;--y:18%;--delay:-1s">
+        <span class="service-icon reply-icon" aria-hidden="true">↩</span><b>Instant WhatsApp Reply</b><small class="service-live">INSTANT REPLY</small>
+      </div>
 
-      <div class="flow-node" style="--x:14%;--y:78%;--delay:-2s"><b>MESSAGES</b><small>Customer contact</small></div>
+      <div class="flow-node service-marketing" style="--x:14%;--y:78%;--delay:-2s">
+        <span class="service-icon marketing-icon" aria-hidden="true">◉</span><b>WhatsApp Marketing</b><small class="service-live">CAMPAIGN LIVE</small>
+      </div>
 
-      <div class="flow-node" style="--x:85%;--y:78%;--delay:-.7s"><b>DATA</b><small>Useful context</small></div>
+      <div class="flow-node service-app" style="--x:85%;--y:78%;--delay:-.7s">
+        <span class="service-icon app-icon" aria-hidden="true">▣</span><b>App Building</b><small class="service-live">DEPLOYING</small>
+      </div>
 
-      <div class="flow-node" style="--x:50%;--y:9%;--delay:-1.6s"><b>FORM</b><small>Capture details</small></div>
+      <div class="flow-node service-voice" style="--x:50%;--y:9%;--delay:-1.6s">
+        <span class="service-icon voice-icon" aria-hidden="true">≋</span><b>Voice Automation</b><small class="service-live">LISTENING</small>
+      </div>
 
-      <div class="flow-node" style="--x:50%;--y:91%;--delay:-.4s"><b>RESPONSE</b><small>Next step</small></div>
+      <div class="flow-node service-agentic" style="--x:50%;--y:91%;--delay:-.4s">
+        <span class="service-icon agentic-icon" aria-hidden="true">✳</span><b>Agentic AI</b><small class="service-live">AGENT ACTIVE</small>
+      </div>
 
     </div>
 
@@ -460,28 +426,57 @@ export default function MotionExperience() {
 
 
 
-
-
-    // Hide 01–06 navigation after the sixth scene ends
+    // Hide the side navigation when the footer enters the viewport.*
 
     const sideIndex = root.querySelector('.side-index')
+
     const pageFooter = document.querySelector('footer')
 
-    // The six scenes are the only area that should show the 01–06 navigation.
-    // Hide it only after Scene 06 has completely left the viewport.
+
+
     const updateSideIndexVisibility = () => {
+
       if (!sideIndex || scenes.length === 0) return
-      const firstRect = scenes[0].getBoundingClientRect()
-      const lastRect = scenes[scenes.length - 1].getBoundingClientRect()
+
+
+
+      const lastScene = scenes[scenes.length - 1]
+
+      const lastSceneRect = lastScene.getBoundingClientRect()
+
       const footerRect = pageFooter ? pageFooter.getBoundingClientRect() : null
-      const footerVisible = Boolean(footerRect && footerRect.top < window.innerHeight)
-      const inScenes = firstRect.top < window.innerHeight && lastRect.bottom > 0 && !footerVisible
-      sideIndex.style.opacity = inScenes ? '1' : '0'
-      sideIndex.style.visibility = inScenes ? 'visible' : 'hidden'
-      sideIndex.style.pointerEvents = inScenes ? 'auto' : 'none'
+
+
+
+      const footerVisible = Boolean(
+
+        footerRect && footerRect.top < window.innerHeight
+
+      )
+
+      const finalSceneEnded = lastSceneRect.bottom <= 0
+
+
+
+      const shouldHide = footerVisible || finalSceneEnded
+
+
+
+      sideIndex.style.opacity = shouldHide ? '0' : '1'
+
+      sideIndex.style.visibility = shouldHide ? 'hidden' : 'visible'
+
+      sideIndex.style.pointerEvents = shouldHide ? 'none' : 'auto'
+
     }
 
-    window.addEventListener('scroll', updateSideIndexVisibility, { passive: true })
+
+
+    window.addEventListener('scroll', updateSideIndexVisibility, {
+
+      passive: true
+
+    })
 
     window.addEventListener('resize', updateSideIndexVisibility)
 
@@ -499,9 +494,7 @@ export default function MotionExperience() {
 
 
 
-
-
-    // Compact scroll hint: show only on Scenes 01–05
+    // Create the scroll hint.*
 
     const scrollHint = document.createElement('div')
 
@@ -571,8 +564,6 @@ export default function MotionExperience() {
 
     const scrollMouse = document.createElement('span')
 
-
-
     Object.assign(scrollMouse.style, {
 
       display: 'none',
@@ -598,8 +589,6 @@ export default function MotionExperience() {
 
 
     const scrollDot = document.createElement('span')
-
-
 
     Object.assign(scrollDot.style, {
 
@@ -633,7 +622,7 @@ export default function MotionExperience() {
 
     const scrollArrow = document.createElementNS(
 
-      'http://www.w3.org/2000/svg',
+      'http\://www.w3.org/2000/svg',
 
       'svg'
 
@@ -662,8 +651,6 @@ export default function MotionExperience() {
 
 
     const scrollStyle = document.createElement('style')
-
-
 
     scrollStyle.textContent = `
 
@@ -705,8 +692,6 @@ export default function MotionExperience() {
 
     `
 
-
-
     document.head.appendChild(scrollStyle)
 
 
@@ -727,58 +712,7 @@ export default function MotionExperience() {
 
       scrollHint.style.visibility = 'hidden'
 
-      scrollHint.style.transform =
-
-        'translateX(-50%) translateY(8px)'
-
-    }
-
-
-
-    const showScrollHint = (stage) => {
-      // Show hints on Scenes 01–06, but never once the footer enters the viewport.
-      const footerRect = pageFooter ? pageFooter.getBoundingClientRect() : null
-      if (footerRect && footerRect.top < window.innerHeight) {
-        hideScrollHint()
-        hintStage = 0
-        return
-      }
-
-      hintStage = stage
-
-
-
-      if (stage === 1) {
-
-        scrollText.textContent = 'Scroll'
-
-        scrollArrow.style.display = 'block'
-
-        scrollMouse.style.display = 'none'
-
-        scrollHint.style.minWidth = 'auto'
-
-      } else {
-
-        scrollText.textContent = 'Keep scrolling'
-
-        scrollArrow.style.display = 'none'
-
-        scrollMouse.style.display = 'flex'
-
-        scrollHint.style.minWidth = '160px'
-
-      }
-
-
-
-      scrollHint.style.opacity = '1'
-
-      scrollHint.style.visibility = 'visible'
-
-      scrollHint.style.transform =
-
-        'translateX(-50%) translateY(0)'
+      scrollHint.style.transform = 'translateX(-50%) translateY(8px)'
 
     }
 
@@ -832,6 +766,62 @@ export default function MotionExperience() {
 
 
 
+    const showScrollHint = (stage) => {
+
+      // Show hints on Scenes 01–06, but hide them when the footer appears.*
+
+      const footerRect = pageFooter ? pageFooter.getBoundingClientRect() : null
+
+
+
+      if (footerRect && footerRect.top < window.innerHeight) {
+
+        hideScrollHint()
+
+        hintStage = 0
+
+        return
+
+      }
+
+
+
+      hintStage = stage
+
+
+
+      if (stage === 1) {
+
+        scrollText.textContent = 'Scroll'
+
+        scrollArrow.style.display = 'block'
+
+        scrollMouse.style.display = 'none'
+
+        scrollHint.style.minWidth = 'auto'
+
+      } else {
+
+        scrollText.textContent = 'Keep scrolling'
+
+        scrollArrow.style.display = 'none'
+
+        scrollMouse.style.display = 'flex'
+
+        scrollHint.style.minWidth = '160px'
+
+      }
+
+
+
+      scrollHint.style.opacity = '1'
+
+      scrollHint.style.visibility = 'visible'
+
+      scrollHint.style.transform = 'translateX(-50%) translateY(0)'
+
+    }
+
 
 
     const startSceneHintTimer = () => {
@@ -844,15 +834,9 @@ export default function MotionExperience() {
 
 
 
-      // Allow the scroll hint on all six scenes
-
-      // The footer is not part of the scenes array
+      // The hint can appear on all six scenes.*
 
       hintTimer = window.setTimeout(() => {
-
-        // If the visitor has moved to another scene, do not show*
-
-        // a stale hint for the previous scene
 
         if (findActiveScene() !== activeSceneIndex) {
 
@@ -868,7 +852,7 @@ export default function MotionExperience() {
 
 
 
-        // After 2 more seconds, show Keep scrolling
+        // Show "Keep scrolling" two seconds later.*
 
         hintTimer = window.setTimeout(() => {
 
@@ -892,17 +876,11 @@ export default function MotionExperience() {
 
 
 
-
-
     const updateSceneHint = () => {
 
       const nextIndex = findActiveScene()
 
       const lastScene = scenes[scenes.length - 1]
-
-
-
-      // Check whether the visitor is still inside the six-scene experience
 
       const lastSceneRect = lastScene
 
@@ -910,15 +888,23 @@ export default function MotionExperience() {
 
         : null
 
-
-
       const footerRect = pageFooter ? pageFooter.getBoundingClientRect() : null
-      const footerVisible = Boolean(footerRect && footerRect.top < window.innerHeight)
-      const experienceEnded = !lastSceneRect || lastSceneRect.bottom <= 0 || footerVisible
+
+      const footerVisible = Boolean(
+
+        footerRect && footerRect.top < window.innerHeight
+
+      )
 
 
 
-      // Hide the hint after Scene 06, including when the footer appears
+      // Stop the hint once Scene 06 has passed or the footer is visible.*
+
+      const experienceEnded =
+
+        !lastSceneRect || lastSceneRect.bottom <= 0 || footerVisible
+
+
 
       if (experienceEnded) {
 
@@ -935,8 +921,6 @@ export default function MotionExperience() {
       }
 
 
-
-      // Start the hint timer when the active scene changes
 
       if (nextIndex !== activeSceneIndex) {
 
@@ -956,8 +940,6 @@ export default function MotionExperience() {
 
     const onHintScroll = () => {
 
-      // Hide the hint immediately during scrolling
-
       clearHintTimers()
 
       hideScrollHint()
@@ -965,8 +947,6 @@ export default function MotionExperience() {
       hintStage = 0
 
 
-
-      // Recheck after scrolling settles
 
       settleTimer = window.setTimeout(() => {
 
@@ -978,19 +958,11 @@ export default function MotionExperience() {
 
 
 
-    window.addEventListener('scroll', onHintScroll, {
-
-      passive: true
-
-    })
-
-
+    window.addEventListener('scroll', onHintScroll, { passive: true })
 
     window.addEventListener('resize', onHintScroll)
 
 
-
-    // Initialize the currently visible scene
 
     activeSceneIndex = findActiveScene()
 
@@ -1004,13 +976,9 @@ export default function MotionExperience() {
 
       window.clearTimeout(settleTimer)
 
-
-
       window.removeEventListener('scroll', onHintScroll)
 
       window.removeEventListener('resize', onHintScroll)
-
-
 
       scrollHint.remove()
 
@@ -1020,15 +988,13 @@ export default function MotionExperience() {
 
 
 
-
-
-
-
-    // Progress indicator and active scene navigation
+    // Progress bar.*
 
     const updateProgress = () => {
 
       const max = document.documentElement.scrollHeight - window.innerHeight
+
+
 
       if (bar) {
 
@@ -1056,7 +1022,7 @@ export default function MotionExperience() {
 
 
 
-    // Add in-view class and update the active scene navigation
+    // Animate scenes as they enter the viewport and update the active number.*
 
     let observer
 
@@ -1106,7 +1072,7 @@ export default function MotionExperience() {
 
 
 
-    // Scene 04: move through four ShahInnovations scan positions on scroll
+    // Scene 04: animate the four ShahInnovations scan positions.*
 
     const brandVisual = root.querySelector('.brand-search-visual')
 
@@ -1202,7 +1168,7 @@ export default function MotionExperience() {
 
 
 
-    // Generate background particles for Scene 02
+    // Generate background particles for Scene 02.*
 
     const particleBox = root.querySelector('#particles')
 
@@ -1246,7 +1212,7 @@ export default function MotionExperience() {
 
 
 
-    // Desktop pointer movement for the Scene 01 hero visual
+    // Desktop pointer movement for the Scene 01 hero visual.*
 
     const hero = root.querySelector('#scene1 .assembly')
 
