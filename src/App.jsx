@@ -8,25 +8,65 @@ import About from './About'
 import Contact from './Contact'
 import Admin from './Admin'
 import AdminLogin from './AdminLogin'
-
+import Footer from './Footer.jsx'
 import { supabase } from './supabase.js'
 
-import logo from './assets/shahinnovations-logo.webp'
+import logo from './assets/shahinnovations-logo.png'
 
 function App() {
   const { pathname: path } = useLocation()
 
+  const [scrollHintStage, setScrollHintStage] = useState(0)
   const [menuOpen, setMenuOpen] = useState(false)
   const [session, setSession] = useState(null)
   const [checkingAuth, setCheckingAuth] = useState(true)
 
-  // ================= AUTH CHECK =================
-
+  // Reset scroll and close mobile menu when changing pages
   useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: 'instant',
+    })
+
+    setMenuOpen(false)
+  }, [path])
+
+  // Homepage scroll hint
+  useEffect(() => {
+    setScrollHintStage(0)
+
+    if (path !== '/') return
+
+    const timer1 = window.setTimeout(() => {
+      setScrollHintStage(1)
+    }, 3000)
+
+    const timer2 = window.setTimeout(() => {
+      setScrollHintStage(2)
+    }, 5000)
+
+    return () => {
+      window.clearTimeout(timer1)
+      window.clearTimeout(timer2)
+    }
+  }, [path])
+
+  // Supabase authentication
+  useEffect(() => {
+    let mounted = true
+
     async function checkSession() {
       const {
         data: { session },
+        error,
       } = await supabase.auth.getSession()
+
+      if (!mounted) return
+
+      if (error) {
+        console.error('Unable to check admin session:', error.message)
+      }
 
       setSession(session)
       setCheckingAuth(false)
@@ -37,16 +77,18 @@ function App() {
     const {
       data: { subscription },
     } = supabase.auth.onAuthStateChange((_event, session) => {
-      setSession(session)
+      if (mounted) {
+        setSession(session)
+      }
     })
 
     return () => {
+      mounted = false
       subscription.unsubscribe()
     }
   }, [])
 
-  // ================= ADMIN ROUTE =================
-
+  // Admin route
   if (path === '/admin') {
     if (checkingAuth) {
       return (
@@ -71,8 +113,7 @@ function App() {
     return <Admin />
   }
 
-  // ================= NORMAL PAGES =================
-
+  // Select the page for the current route
   let Page = Home
 
   if (path === '/services') {
@@ -83,89 +124,111 @@ function App() {
     Page = Contact
   }
 
+  const navLinkClass =
+    'relative transition-colors duration-200 hover:text-cyan-400 ' +
+    'after:absolute after:-bottom-2 after:left-0 after:h-0.5 ' +
+    'after:w-0 after:bg-cyan-400 after:transition-all ' +
+    'after:duration-300 hover:after:w-full'
+
+  const whatsappUrl = 'https://wa.me/919130704919'
+
   return (
     <div className="min-h-screen bg-slate-950 text-white">
 
-      {/* ================= NAVBAR ================= */}
+      {/* NAVBAR */}
+      <header className="sticky top-0 z-50 isolate border-b border-white/10 bg-slate-950">
 
-      <header className="sticky top-0 z-50 border-b border-white/10 bg-slate-950/80 backdrop-blur-xl">
-
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-3">
+        <div className="mx-auto flex min-h-[76px] max-w-7xl items-center justify-between gap-4 px-4 py-2 sm:min-h-[84px] sm:px-6 lg:px-8">
 
           {/* Logo */}
-
           <Link
             to="/"
             onClick={() => setMenuOpen(false)}
-            className="block"
+            aria-label="ShahInnovations home"
+            className="flex min-w-0 shrink-0 items-center"
           >
             <motion.img
               src={logo}
               alt="ShahInnovations"
-              initial={{ opacity: 0, x: -20 }}
+              initial={{ opacity: 0, x: -12 }}
               animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6 }}
-              className="h-16 w-auto object-contain"
+              transition={{ duration: 0.5 }}
+              className="block h-12 w-auto max-w-[190px] object-contain object-left sm:h-14 sm:max-w-[230px] lg:h-16 lg:max-w-[260px]"
             />
           </Link>
 
           {/* Desktop Navigation */}
-
-          <nav className="hidden items-center gap-8 text-sm text-slate-300 md:flex">
-
-            <Link
-              to="/"
-              className="relative transition hover:text-cyan-400 after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full"
-            >
+          <nav
+            aria-label="Main navigation"
+            className="hidden items-center gap-6 text-sm text-slate-300 md:flex lg:gap-8"
+          >
+            <Link to="/" className={navLinkClass}>
               Home
             </Link>
 
-            <Link
-              to="/services"
-              className="relative transition hover:text-cyan-400 after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full"
-            >
+            <Link to="/services" className={navLinkClass}>
               Services
             </Link>
 
-            <Link
-              to="/about"
-              className="relative transition hover:text-cyan-400 after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full"
-            >
+            <Link to="/about" className={navLinkClass}>
               About
             </Link>
 
-            <Link
-              to="/contact"
-              className="relative transition hover:text-cyan-400 after:absolute after:-bottom-2 after:left-0 after:h-0.5 after:w-0 after:bg-cyan-400 after:transition-all after:duration-300 hover:after:w-full"
-            >
+            <Link to="/contact" className={navLinkClass}>
               Contact
             </Link>
 
+            <a
+              href={whatsappUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex shrink-0 items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 text-sm font-semibold text-emerald-300 transition hover:border-emerald-400/60 hover:bg-emerald-400/15"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+                className="h-5 w-5"
+                aria-hidden="true"
+              >
+                <path
+                  fill="#25D366"
+                  d="M16 3C8.83 3 3 8.78 3 15.9c0 2.27.6 4.49 1.73 6.45L3 29l6.85-1.78a13.1 13.1 0 0 0 6.17 1.55C23.2 28.77 29 23 29 15.9 29 8.78 23.17 3 16 3Z"
+                />
+                <path
+                  fill="#fff"
+                  d="M22.2 19.1c-.32-.16-1.9-.94-2.2-1.04-.3-.11-.51-.16-.72.16-.21.31-.83 1.04-1.02 1.25-.19.21-.37.23-.69.08-.32-.16-1.36-.5-2.6-1.58-.96-.85-1.6-1.9-1.79-2.22-.19-.31-.02-.48.14-.64.14-.14.32-.37.48-.55.16-.18.21-.31.32-.52.1-.21.05-.39-.03-.55-.08-.16-.72-1.73-.99-2.37-.26-.62-.52-.53-.72-.54h-.61c-.21 0-.55.08-.84.39-.29.31-1.1 1.07-1.1 2.61s1.12 3.03 1.28 3.24c.16.21 2.2 3.35 5.32 4.7.74.32 1.32.51 1.77.65.74.23 1.41.2 1.94.12.59-.09 1.9-.77 2.17-1.51.27-.73.27-1.36.19-1.49-.08-.13-.29-.21-.61-.37Z"
+                />
+              </svg>
+
+              WhatsApp
+              <span aria-hidden="true">↗</span>
+            </a>
           </nav>
 
           {/* Mobile Menu Button */}
-
           <button
-            onClick={() => setMenuOpen(!menuOpen)}
-            className="text-2xl text-slate-300 md:hidden"
-            aria-label="Toggle menu"
+            type="button"
+            onClick={() => setMenuOpen((open) => !open)}
+            className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-lg border border-white/10 text-2xl text-slate-200 transition hover:border-cyan-400/40 hover:text-cyan-400 md:hidden"
+            aria-label={menuOpen ? 'Close menu' : 'Open menu'}
+            aria-expanded={menuOpen}
           >
             {menuOpen ? '✕' : '☰'}
           </button>
-
         </div>
 
         {/* Mobile Navigation */}
-
         {menuOpen && (
           <motion.div
-            initial={{ opacity: 0, y: -10 }}
+            initial={{ opacity: 0, y: -8 }}
             animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.2 }}
             className="border-t border-white/10 bg-slate-950 px-6 py-5 md:hidden"
           >
-
-            <div className="flex flex-col gap-5 text-sm text-slate-300">
-
+            <nav
+              aria-label="Mobile navigation"
+              className="flex flex-col gap-5 text-sm text-slate-300"
+            >
               <Link
                 to="/"
                 onClick={() => setMenuOpen(false)}
@@ -198,39 +261,52 @@ function App() {
                 Contact
               </Link>
 
-            </div>
-
+              <a
+                href={whatsappUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-fit items-center gap-2 rounded-full border border-emerald-400/30 bg-emerald-400/10 px-4 py-2 font-semibold text-emerald-300 transition hover:bg-emerald-400/15"
+              >
+                WhatsApp ↗
+              </a>
+            </nav>
           </motion.div>
         )}
-
       </header>
 
-      {/* ================= PAGE ================= */}
-
-      <main>
+      {/* PAGE CONTENT */}
+      <main className="relative">
         <Page />
       </main>
 
-      {/* ================= FOOTER ================= */}
+      {/* FOOTER */}
+      <Footer />
 
-      <motion.footer
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.7 }}
-        className="border-t border-white/10 px-6 py-8 text-center text-sm text-slate-500"
+      {/* Floating WhatsApp Button */}
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        aria-label="Chat with ShahInnovations on WhatsApp"
+        title="Chat on WhatsApp"
+        className="fixed bottom-6 right-6 z-[10000] flex h-14 w-14 items-center justify-center rounded-full border border-white/20 bg-[#25D366] text-white shadow-xl shadow-emerald-500/25 transition duration-300 hover:scale-110 hover:shadow-emerald-500/40"
       >
-
-        <p>
-          © 2026 ShahInnovations. All rights reserved.
-        </p>
-
-        <p className="mt-2 text-xs text-slate-600">
-          Technology • Innovation • Digital Solutions
-        </p>
-
-      </motion.footer>
-
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 32 32"
+          className="h-8 w-8"
+          aria-hidden="true"
+        >
+          <path
+            fill="currentColor"
+            d="M16 3C8.83 3 3 8.78 3 15.9c0 2.27.6 4.49 1.73 6.45L3 29l6.85-1.78a13.1 13.1 0 0 0 6.17 1.55C23.2 28.77 29 23 29 15.9 29 8.78 23.17 3 16 3Z"
+          />
+          <path
+            fill="#fff"
+            d="M22.2 19.1c-.32-.16-1.9-.94-2.2-1.04-.3-.11-.51-.16-.72.16-.21.31-.83 1.04-1.02 1.25-.19.21-.37.23-.69.08-.32-.16-1.36-.5-2.6-1.58-.96-.85-1.6-1.9-1.79-2.22-.19-.31-.02-.48.14-.64.14-.14.32-.37.48-.55.16-.18.21-.31.32-.52.1-.21.05-.39-.03-.55-.08-.16-.72-1.73-.99-2.37-.26-.62-.52-.53-.72-.54h-.61c-.21 0-.55.08-.84.39-.29.31-1.1 1.07-1.1 2.61s1.12 3.03 1.28 3.24c.16.21 2.2 3.35 5.32 4.7.74.32 1.32.51 1.77.65.74.23 1.41.2 1.94.12.59-.09 1.9-.77 2.17-1.51.27-.73.27-1.36.19-1.49-.08-.13-.29-.21-.61-.37Z"
+          />
+        </svg>
+      </a>
     </div>
   )
 }

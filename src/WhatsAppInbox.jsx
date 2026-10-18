@@ -143,9 +143,20 @@ function MessageBubble({ message }) {
 function EmptyState({ title, description }) {
   return (
     <div className="flex h-full min-h-[300px] flex-col items-center justify-center px-6 text-center">
-      <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-white/10 bg-white/5 text-2xl">
-        💬
-      </div>
+
+<div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#25D366]/25 bg-[#25D366]/10">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 32 32"
+    className="h-9 w-9"
+    fill="#25D366"
+    aria-label="WhatsApp"
+    role="img"
+  >
+    <path d="M16.02 3C8.85 3 3.02 8.78 3.02 15.9c0 2.27.6 4.49 1.73 6.45L3 29l6.85-1.78a13.1 13.1 0 0 0 6.17 1.55h.01C23.2 28.77 29 23 29 15.9 29 8.78 23.19 3 16.02 3Zm0 23.57a10.8 10.8 0 0 1-5.5-1.5l-.4-.23-4.07 1.06 1.08-3.95-.26-.41a10.6 10.6 0 0 1-1.65-5.64c0-5.92 4.85-10.73 10.81-10.73 2.89 0 5.6 1.12 7.64 3.15a10.63 10.63 0 0 1 3.16 7.59c0 5.92-4.85 10.73-10.81 10.73Zm5.93-8.04c-.32-.16-1.9-.94-2.2-1.04-.3-.11-.51-.16-.72.16-.21.31-.83 1.04-1.02 1.25-.19.21-.37.23-.69.08-.32-.16-1.36-.5-2.6-1.58-.96-.85-1.6-1.9-1.79-2.22-.19-.31-.02-.48.14-.64.14-.14.32-.37.48-.55.16-.18.21-.31.32-.52.1-.21.05-.39-.03-.55-.08-.16-.72-1.73-.99-2.37-.26-.62-.52-.53-.72-.54h-.61c-.21 0-.55.08-.84.39-.29.31-1.1 1.07-1.1 2.61s1.12 3.03 1.28 3.24c.16.21 2.2 3.35 5.32 4.7.74.32 1.32.51 1.77.65.74.23 1.41.2 1.94.12.59-.09 1.9-.77 2.17-1.51.27-.73.27-1.36.19-1.49-.08-.13-.29-.21-.61-.37Z" />
+  </svg>
+</div>
+
 
       <h3 className="text-lg font-semibold text-white">{title}</h3>
 
@@ -524,9 +535,25 @@ export default function WhatsAppInbox() {
         <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div>
             <div className="flex items-center gap-3">
-              <div className="flex h-12 w-12 items-center justify-center rounded-2xl border border-cyan-400/20 bg-cyan-400/10 text-2xl">
-                💬
-              </div>
+
+<div className="mb-4 flex h-16 w-16 items-center justify-center rounded-2xl border border-[#25D366]/30 bg-[#25D366]/10">
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    viewBox="0 0 32 32"
+    className="h-10 w-10"
+    aria-hidden="true"
+  >
+    <path
+      fill="#25D366"
+      d="M16 3C8.83 3 3 8.78 3 15.9c0 2.27.6 4.49 1.73 6.45L3 29l6.85-1.78a13.1 13.1 0 0 0 6.17 1.55C23.2 28.77 29 23 29 15.9 29 8.78 23.17 3 16 3Z"
+    />
+    <path
+      fill="#fff"
+      d="M22.2 19.1c-.32-.16-1.9-.94-2.2-1.04-.3-.11-.51-.16-.72.16-.21.31-.83 1.04-1.02 1.25-.19.21-.37.23-.69.08-.32-.16-1.36-.5-2.6-1.58-.96-.85-1.6-1.9-1.79-2.22-.19-.31-.02-.48.14-.64.14-.14.32-.37.48-.55.16-.18.21-.31.32-.52.1-.21.05-.39-.03-.55-.08-.16-.72-1.73-.99-2.37-.26-.62-.52-.53-.72-.54h-.61c-.21 0-.55.08-.84.39-.29.31-1.1 1.07-1.1 2.61s1.12 3.03 1.28 3.24c.16.21 2.2 3.35 5.32 4.7.74.32 1.32.51 1.77.65.74.23 1.41.2 1.94.12.59-.09 1.9-.77 2.17-1.51.27-.73.27-1.36.19-1.49-.08-.13-.29-.21-.61-.37Z"
+    />
+  </svg>
+</div>
+
 
               <div>
                 <p className="text-xs font-semibold uppercase tracking-[0.2em] text-cyan-300/70">

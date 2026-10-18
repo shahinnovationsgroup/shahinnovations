@@ -2,8 +2,10 @@ import { useEffect, useMemo, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Link } from "react-router-dom";
 import { supabase } from "./supabase.js";
-import logo from "./assets/shahinnovations-logo.png";
+import logo from './assets/shahinnovations-logo.png'
 import WhatsAppInbox from "./WhatsAppInbox.jsx";
+import './admin-motion.css'
+
 
 const PAGE_SIZE_OPTIONS = [10, 25, 50];
 
@@ -327,8 +329,19 @@ function Admin() {
     return "border-cyan-500/30 bg-cyan-500/10 text-cyan-400";
   }
 
-  return (
-    <div className="min-h-screen bg-slate-950 text-white">
+
+return (
+  <div className="si-admin-motion relative min-h-screen overflow-hidden bg-[#030611] text-white">
+    <div className="si-dashboard-glow si-dashboard-glow-a" />
+    <div className="si-dashboard-glow si-dashboard-glow-b" />
+
+    <motion.div
+      aria-hidden="true"
+      className="si-dashboard-grid"
+      animate={{ backgroundPosition: ["0px 0px", "48px 48px"] }}
+      transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
+    />
+
 
       {/* ================= HEADER ================= */}
 
@@ -336,11 +349,13 @@ function Admin() {
         <div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-4 px-6 py-4">
 
           <Link to="/">
-            <img
-              src={logo}
-              alt="ShahInnovations"
-              className="h-12 w-auto"
-            />
+
+<img
+  src={logo}
+  alt="ShahInnovations"
+  className="block h-12 w-auto max-w-[250px] object-contain sm:h-14 sm:max-w-[280px]"
+/>
+
           </Link>
 
           <div className="flex flex-wrap items-center justify-end gap-3">
@@ -377,35 +392,54 @@ function Admin() {
 
         {/* ================= ADMIN TABS ================= */}
 
+
+        {/* ================= ADMIN TABS ================= */}
+
         <div className="border-t border-white/10">
           <div className="mx-auto flex max-w-7xl gap-2 overflow-x-auto px-6 py-3">
 
+            {/* Dashboard Tab */}
             <button
               type="button"
-              onClick={() =>
-                setActiveSection("overview")
-              }
-              className={`shrink-0 rounded-xl px-4 py-2 text-sm font-semibold transition ${
+              onClick={() => setActiveSection("overview")}
+              className={`inline-flex shrink-0 items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition ${
                 activeSection === "overview"
                   ? "bg-cyan-400 text-slate-950"
                   : "bg-white/5 text-slate-300 hover:bg-white/10"
               }`}
             >
-              📊 Dashboard
+              <span aria-hidden="true">📊</span>
+              <span>Dashboard</span>
             </button>
 
+            {/* WhatsApp Inbox Tab */}
             <button
               type="button"
-              onClick={() =>
-                setActiveSection("whatsapp")
-              }
-              className={`shrink-0 rounded-xl px-4 py-2 text-sm font-semibold transition ${
+              onClick={() => setActiveSection("whatsapp")}
+              className={`inline-flex shrink-0 items-center gap-2 rounded-xl px-4 py-2 text-sm font-semibold transition ${
                 activeSection === "whatsapp"
                   ? "bg-cyan-400 text-slate-950"
                   : "bg-white/5 text-slate-300 hover:bg-white/10"
               }`}
             >
-              💬 WhatsApp Inbox
+              {/* WhatsApp Logo */}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 32 32"
+                className="h-5 w-5 shrink-0"
+                aria-hidden="true"
+              >
+                <path
+                  fill="#25D366"
+                  d="M16 3C8.83 3 3 8.78 3 15.9c0 2.27.6 4.49 1.73 6.45L3 29l6.85-1.78a13.1 13.1 0 0 0 6.17 1.55C23.2 28.77 29 23 29 15.9 29 8.78 23.17 3 16 3Z"
+                />
+                <path
+                  fill="#fff"
+                  d="M22.2 19.1c-.32-.16-1.9-.94-2.2-1.04-.3-.11-.51-.16-.72.16-.21.31-.83 1.04-1.02 1.25-.19.21-.37.23-.69.08-.32-.16-1.36-.5-2.6-1.58-.96-.85-1.6-1.9-1.79-2.22-.19-.31-.02-.48.14-.64.14-.14.32-.37.48-.55.16-.18.21-.31.32-.52.1-.21.05-.39-.03-.55-.08-.16-.72-1.73-.99-2.37-.26-.62-.52-.53-.72-.54h-.61c-.21 0-.55.08-.84.39-.29.31-1.1 1.07-1.1 2.61s1.12 3.03 1.28 3.24c.16.21 2.2 3.35 5.32 4.7.74.32 1.32.51 1.77.65.74.23 1.41.2 1.94.12.59-.09 1.9-.77 2.17-1.51.27-.73.27-1.36.19-1.49-.08-.13-.29-.21-.61-.37Z"
+                />
+              </svg>
+
+              <span>WhatsApp Inbox</span>
             </button>
 
           </div>
@@ -420,6 +454,7 @@ function Admin() {
         </div>
       ) : (
         <main className="mx-auto max-w-7xl px-6 py-10">
+
 
           {/* ================= TITLE ================= */}
 
