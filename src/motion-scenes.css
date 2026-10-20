@@ -1279,3 +1279,48 @@ header.sticky a img,
 }
 
 
+/* ==================================================
+   SHAHINNOVATIONS — SCENE 01 DESKTOP VISUAL FIX
+   Keep the complete right-side motion visible.
+   Preserve existing mobile layout and animations.
+   ================================================== */
+
+@media (min-width: 901px) {
+  #scene1.s1 {
+    position: relative !important;
+    min-height: 100svh !important;
+    box-sizing: border-box !important;
+    overflow: hidden !important;
+  }
+
+  #scene1.s1 .assembly {
+    position: absolute !important;
+    top: 48% !important;
+    right: 3.5% !important;
+    bottom: auto !important;
+    left: auto !important;
+
+    width: min(43vw, 650px) !important;
+    height: min(50vh, 460px) !important;
+    min-height: 0 !important;
+    max-height: 460px !important;
+
+    margin: 0 !important;
+    translate: 0 -50% !important;
+    transform-style: preserve-3d !important;
+    box-sizing: border-box !important;
+
+    overflow: hidden !important;
+    border-radius: 26px !important;
+    z-index: 2 !important;
+  }
+
+  #scene1.s1 .copy {
+    position: relative !important;
+    z-index: 3 !important;
+  }
+
+  #scene1.s1 .scene-caption {
+    z-index: 4 !important;
+  }
+}
