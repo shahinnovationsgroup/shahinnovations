@@ -1139,3 +1139,143 @@ header.sticky a img,
 }
 @media(max-width:480px){.si-motion-experience .s1 .copy h1{font-size:clamp(34px,9.5vw,44px)!important}.si-motion-experience .s4 .split-copy h2{font-size:clamp(34px,9vw,42px)}.si-motion-experience .s4 .brand-search-visual{height:270px!important}.si-motion-experience .s4 .brand-target{width:47%;max-width:47%;padding:7px 6px}.si-motion-experience .s4 .brand-target strong{font-size:11px}.si-motion-experience .s4 .brand-target small{font-size:5px}.si-motion-experience .s5 .glass-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.si-motion-experience .s5 .glass-card{min-height:124px}.si-motion-experience .s6 .workflow{height:360px}.si-motion-experience .s6 .flow-node{max-width:35%}}
 @media(max-width:800px){html,body{max-width:100%;overflow-x:clip}}
+
+
+
+/* Scene 6 — Remove rotating rings and blinking cursor */
+
+.si-motion-experience .s6 .workflow::before,
+.si-motion-experience .s6 .workflow::after,
+.si-motion-experience .s6 .flow-core::before,
+.si-motion-experience .s6 .flow-core::after,
+.si-motion-experience .s6 .typing-brand::before,
+.si-motion-experience .s6 .typing-brand::after {
+  content: none !important;
+  animation: none !important;
+  box-shadow: none !important;
+}
+
+.si-motion-experience .s6 .typing-caret {
+  display: none !important;
+  animation: none !important;
+}
+
+
+/* MOBILE FIX — SCENE 6 WORKFLOW: KEEP ALL CARDS VISIBLE */
+@media (max-width: 800px) {
+  .s6 .workflow {
+    position: relative;
+    right: auto;
+    width: 100%;
+    height: 430px;
+    min-height: 430px;
+    margin-top: 25px;
+    margin-bottom: 30px;
+    overflow: visible;
+  }
+
+  .s6 .flow-node {
+    width: 92px;
+    max-width: 29%;
+    padding: 10px 5px;
+    box-sizing: border-box;
+
+    /* Keep top and bottom cards inside the workflow */
+    top: clamp(48px, var(--y), calc(100% - 48px));
+    left: clamp(48px, var(--x), calc(100% - 48px));
+  }
+
+  .s6 .flow-node small {
+    font-size: 8px;
+  }
+
+  .s6 .flow-core {
+    width: 80px;
+    height: 80px;
+    font-size: 20px;
+    max-width: 26%;
+  }
+}
+
+@media (max-width: 520px) {
+  .s6 .workflow {
+    height: 400px;
+    min-height: 400px;
+  }
+
+  .s6 .flow-node {
+    width: 87px;
+    max-width: 29%;
+    padding: 9px 4px;
+    top: clamp(45px, var(--y), calc(100% - 45px));
+    left: clamp(45px, var(--x), calc(100% - 45px));
+  }
+
+  .s6 .flow-node small {
+    font-size: 8px;
+  }
+
+  .s6 .flow-core {
+    width: 72px;
+    height: 72px;
+  }
+}
+
+
+
+/* ShahInnovations — Scene 1 mobile layout correction */
+@media (max-width: 800px) {
+  .s1 {
+    display: block;
+    min-height: 100svh;
+    padding: 115px 23px 70px;
+  }
+
+  .s1 .copy {
+    position: relative;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 0;
+    flex: none;
+    z-index: 2;
+  }
+
+  .s1 .buttons {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    z-index: 2;
+  }
+
+  .s1 .buttons .btn {
+    position: relative;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  /* Override desktop assembly positioning on mobile */
+  .s1 .visual.assembly {
+    position: relative;
+    inset: auto;
+    top: auto;
+    right: auto;
+    bottom: auto;
+    left: auto;
+    width: 100%;
+    height: 350px;
+    min-height: 0;
+    margin: 30px 0 0;
+    transform: none;
+    perspective: none;
+    box-sizing: border-box;
+    overflow: hidden;
+    z-index: 1;
+  }
+
+  .s1 .scene-caption {
+    z-index: 3;
+  }
+}
+
+

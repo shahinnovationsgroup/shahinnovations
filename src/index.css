@@ -1,6 +1,130 @@
 @import "tailwindcss";
 
+/* ShahInnovations — Desktop Navbar Fix */
+@media (min-width: 768px) {
+  header.sticky nav[aria-label="Main navigation"] {
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    width: fit-content !important;
+    max-width: calc(100vw - 300px) !important;
+    padding: 6px !important;
+    border: 1px solid rgba(34, 211, 238, 0.35) !important;
+    border-radius: 18px !important;
+    background: linear-gradient(
+      110deg,
+      rgba(10, 31, 57, 0.98),
+      rgba(8, 16, 36, 0.98),
+      rgba(5, 36, 48, 0.96)
+    ) !important;
+    box-shadow: 0 0 24px rgba(14, 165, 233, 0.1) !important;
+  }
 
+  /* Home, Services, About, Contact */
+  header.sticky nav[aria-label="Main navigation"] > a:not([href^="https://wa.me/"]) {
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: 38px !important;
+    padding: 0 14px !important;
+    margin: 0 !important;
+    border: 1px solid #172844 !important;
+    border-radius: 12px !important;
+    background: rgba(10, 20, 40, 0.75) !important;
+    color: #f8fafc !important;
+    font-size: 14px !important;
+    font-weight: 600 !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+    box-shadow: none !important;
+    transition: border-color 0.25s ease, background 0.25s ease,
+      box-shadow 0.25s ease !important;
+  }
+
+  /* Highlight whichever page is active */
+  header.sticky nav[aria-label="Main navigation"] > a[aria-current="page"] {
+    border: 1px solid #06c8f5 !important;
+    background: linear-gradient(
+      135deg,
+      rgba(37, 99, 235, 0.65),
+      rgba(34, 211, 238, 0.3),
+      rgba(30, 64, 175, 0.65)
+    ) !important;
+    color: #ffffff !important;
+    font-weight: 700 !important;
+    box-shadow:
+      0 0 18px rgba(6, 182, 212, 0.25),
+      inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
+  }
+
+  /* Hover on inactive tabs */
+  header.sticky nav[aria-label="Main navigation"] > a:not([aria-current="page"]):not([href^="https://wa.me/"]):hover {
+    border-color: rgba(34, 211, 238, 0.65) !important;
+    background: rgba(34, 211, 238, 0.1) !important;
+    box-shadow: 0 0 14px rgba(34, 211, 238, 0.12) !important;
+  }
+
+  /* Divider */
+  header.sticky nav[aria-label="Main navigation"] > span {
+    display: block !important;
+    flex: 0 0 1px !important;
+    height: 30px !important;
+    margin: 0 6px !important;
+    background: rgba(34, 211, 238, 0.18) !important;
+  }
+
+  /* WhatsApp button */
+  header.sticky nav[aria-label="Main navigation"] > a[href^="https://wa.me/"] {
+    box-sizing: border-box !important;
+    display: inline-flex !important;
+    flex: 0 0 auto !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 8px !important;
+    min-width: 0 !important;
+    min-height: 0 !important;
+    height: 38px !important;
+    padding: 0 16px !important;
+    margin: 0 !important;
+    border: 1px solid rgba(16, 185, 129, 0.8) !important;
+    border-radius: 999px !important;
+    background: linear-gradient(
+      90deg,
+      rgba(16, 185, 129, 0.15),
+      rgba(6, 182, 212, 0.15)
+    ) !important;
+    color: #ffffff !important;
+    font-size: 14px !important;
+    font-weight: 700 !important;
+    line-height: 1 !important;
+    white-space: nowrap !important;
+    text-decoration: none !important;
+    box-shadow: 0 0 14px rgba(16, 185, 129, 0.1) !important;
+    transition: border-color 0.25s ease, box-shadow 0.25s ease !important;
+  }
+
+  header.sticky nav[aria-label="Main navigation"] > a[href^="https://wa.me/"] svg {
+    width: 20px !important;
+    height: 20px !important;
+    flex: 0 0 20px !important;
+  }
+
+  header.sticky nav[aria-label="Main navigation"] > a[href^="https://wa.me/"] span {
+    font-size: 16px !important;
+  }
+
+  header.sticky nav[aria-label="Main navigation"] > a[href^="https://wa.me/"]:hover {
+    border-color: #34d399 !important;
+    box-shadow: 0 0 20px rgba(16, 185, 129, 0.22) !important;
+  }
+}
+
+/* Scroll indicator animation */
 @keyframes scrollDot {
   0% {
     transform: translateY(0);
