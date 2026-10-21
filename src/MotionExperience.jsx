@@ -494,97 +494,56 @@ export default function MotionExperience() {
 
 
 
-    // Create the scroll hint.*
+    // Create the scroll hint.
+const scrollHint = document.createElement('div')
 
-    const scrollHint = document.createElement('div')
+scrollHint.className = 'si-scroll-hint'
+scrollHint.setAttribute('aria-live', 'polite')
+scrollHint.setAttribute('aria-label', 'Scroll to continue')
 
-    scrollHint.className = 'si-scroll-hint'
+Object.assign(scrollHint.style, {
+  position: 'fixed',
+  left: '50%',
+  bottom: window.matchMedia('(max-width: 800px)').matches
+    ? '64px'
+    : '24px',
+  transform: 'translateX(-50%) translateY(8px)',
+  zIndex: '100',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+  gap: '8px',
+  minWidth: '160px',
+  padding: '8px 12px',
+  border: '1px solid rgba(255,255,255,.20)',
+  borderRadius: '999px',
+  background: 'rgba(8,12,22,.72)',
+  backdropFilter: 'blur(12px)',
+  WebkitBackdropFilter: 'blur(12px)',
+  color: '#fff',
+  fontSize: '12px',
+  fontWeight: '600',
+  lineHeight: '1',
+  opacity: '0',
+  visibility: 'hidden',
+  pointerEvents: 'none',
+  transition: 'opacity .25s ease, transform .25s ease, visibility .25s ease',
+  whiteSpace: 'nowrap'
+})
 
-    scrollHint.setAttribute('aria-live', 'polite')
+const scrollMouse = document.createElement('span')
 
-    scrollHint.setAttribute('aria-label', 'Scroll to continue')
-
-
-
-    Object.assign(scrollHint.style, {
-
-      position: 'fixed',
-
-      left: '50%',
-
-      bottom: '24px',
-
-      transform: 'translateX(-50%) translateY(8px)',
-
-      zIndex: '100',
-
-      display: 'flex',
-
-      alignItems: 'center',
-
-      justifyContent: 'center',
-
-      gap: '8px',
-
-      minWidth: '160px',
-
-      padding: '8px 12px',
-
-      border: '1px solid rgba(255,255,255,.20)',
-
-      borderRadius: '999px',
-
-      background: 'rgba(8,12,22,.72)',
-
-      backdropFilter: 'blur(12px)',
-
-      WebkitBackdropFilter: 'blur(12px)',
-
-      color: '#fff',
-
-      fontSize: '12px',
-
-      fontWeight: '600',
-
-      lineHeight: '1',
-
-      opacity: '0',
-
-      visibility: 'hidden',
-
-      pointerEvents: 'none',
-
-      transition: 'opacity .25s ease, transform .25s ease, visibility .25s ease',
-
-      whiteSpace: 'nowrap'
-
-    })
-
-
-
-    const scrollMouse = document.createElement('span')
-
-    Object.assign(scrollMouse.style, {
-
-      display: 'none',
-
-      width: '17px',
-
-      height: '28px',
-
-      flexShrink: '0',
-
-      alignItems: 'flex-start',
-
-      justifyContent: 'center',
-
-      border: '2px solid rgba(255,255,255,.82)',
-
-      borderRadius: '999px',
-
-      boxSizing: 'border-box'
-
-    })
+Object.assign(scrollMouse.style, {
+  display: 'none',
+  width: '17px',
+  height: '28px',
+  flexShrink: '0',
+  alignItems: 'flex-start',
+  justifyContent: 'center',
+  border: '2px solid rgba(255,255,255,.82)',
+  borderRadius: '999px',
+  boxSizing: 'border-box'
+})
 
 
 
